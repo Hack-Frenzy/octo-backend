@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Registration</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'icon.png' %}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header
+      style="font-size: 32px; color: rgb(43, 101, 226); font-weight: bold;"
+    >
+      <div class="row">
+        <img
+          class="col-1.4"
+          src="{% static 'icon.png' %}"
+          alt="image not available"
+          style="
+            height: 80px;
+            width: 80px;
+            margin-left: 10%;
+            margin-right: 5%;
+            margin-top: 2%;
+          "
+        />
+        <h1 class="col" style="margin-top: 3%;">
+          COVID Home Health Care System
+        </h1>
+      </div>
+    </header>
+    <div style="margin: 8%; margin-top: 5%;">
+      {% load crispy_forms_tags %}
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+          <legend
+            style="
+              font-size: 28px;
+              font-weight: bold;
+              align-content: center;
+              margin-bottom: 2.5%;
+              color: rgb(3, 130, 235);
+              text-decoration: underline;
+            "
+          >
+            Join today!
+          </legend>
+          {{ form|crispy}}
+        </fieldset>
+        <button type="submit" class="btn btn-outline-primary">Sign up</button>
+      </form>
+      <br /><br />
+      Already have an account ?&nbsp;&nbsp;
+      <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
+    </div>
+  </body>
+</html>
