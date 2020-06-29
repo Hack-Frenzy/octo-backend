@@ -10,13 +10,12 @@
         {% csrf_token %}
         <fieldset > 
             <legend>
-                Join today
+               Hospital Login
             </legend>
             {{form}}
         </fieldset>
-        <button type="submit">Sign up</button>
+        <button type="submit">Login</button>
     </form>
-    <hr>
-    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'HospitalUser' %}">Sign up</a>
 </body>
 </html>
