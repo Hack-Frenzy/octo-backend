@@ -33,13 +33,16 @@ def register_patient(request):
 
             data = {'firstname': firstname, 'lastname': lastname, 'phoneNo': phoneNo, 'email': email,
                     'gender': gender, 'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr}
-
-            auth.create_user_with_email_and_password(email, password)
-            db.child('Patients').child(email).set(data)
-
-            return redirect('newPatient')
+            try:
+                auth.create_user_with_email_and_password(email, password)
+                db.child('Patients').child(email).set(data)
+                return redirect('newPatient')
+            except:
+                message2 = "User Already Exist with same Email"
+                form = PatientRegistrationForm()
+                return render(request, 'patients/patientRegister.html', {'form': form, 'message':message2 })
         else:
-            message2 = "Please recheck and fill the form again"
+            message2 = form.errors
             form = PatientRegistrationForm()
             return render(request, 'patients/patientRegister.html', {'form': form, 'message':message2 })
     else:

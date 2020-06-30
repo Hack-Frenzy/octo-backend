@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 .venv
 db.sqlite3
 __pycache__
-=======
 venv/*
 .venv
 .vscode
 __pycache__
 db.sqlite3
->>>>>>> 32e1769fd2056c075592663460cf142c1e29944b
