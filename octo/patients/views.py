@@ -38,7 +38,11 @@ def register_patient(request):
             db.child('Patients').child(email).set(data)
 
             return redirect('newPatient')
-
+        else:
+            message2 = "Please recheck and fill the form again"
+            form = PatientRegistrationForm()
+            return render(request, 'patients/patientRegister.html', {'form': form, 'message':message2 })
     else:
         form = PatientRegistrationForm()
-        return render(request, 'patients/patientRegister.html', {'form': form})
+        message2 = ""
+        return render(request, 'patients/patientRegister.html', {'form': form, 'message':message2})

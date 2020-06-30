@@ -4,6 +4,7 @@
     <title>Patient Registration</title>
   </head>
   <body>
+    {{message}}
     <form method="POST">
       {% csrf_token %} 
       {{ form }}
