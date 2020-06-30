@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %} 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 </head>
 <body>
     <header>
-        <img src="../images/icon.png" alt="image not available" style="height: 200px; width: 200px;"/>
+        <img src="{% static "icon.png" %}" alt="image not available" style="height: 200px; width: 200px;"/>
         <div></div>
     </header>
     <div class="row mx-md-n5">
