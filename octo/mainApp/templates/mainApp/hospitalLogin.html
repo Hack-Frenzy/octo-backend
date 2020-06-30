@@ -7,16 +7,27 @@
     <title>Covid Monitoring System</title>
     <link rel="icon" type="image/x-icon" href="{% static 'icon.png' %}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
+    <style>
+      /*  Small devices (landscape phones, 576px and up) */
+      @media (min-width: 0px) { .icon
+            {display: none;} }
+@media (min-width: 576px) { .icon
+            {display: none;} }
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { .icon{display: none;}
+@media (min-width: 992px) { .icon{display: inline;} }
+}
+    </style>
 </head>
 <body >
-    <header style="font-size: 32px; color: rgb(43, 101, 226); font-weight: bold;">
-      <img src="{% static 'icon.png' %}" alt="image not available" style="height: 150px; width: 150px; margin-left:10%; margin-right:5%; margin-top:2%;"/>
+    <header style="font-size: 32px; margin:2.5%;margin-left:10%; color: rgb(43, 101, 226); font-weight: bold;">
+      <img src="{% static 'icon.png' %}" alt="image not available" style="height: 150px; width: 150px;  margin-right:5%; " class="icon"/>
         COVID Home Health Care System
     </header>
 
     <!-- Carousel -->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"style="margin-left:10%; margin-right:10%; margin-top:2.5%; height:5%; width:80%;">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"style="margin-left:10%; margin-right:10%; margin-top:2.5%; height:15%; width:80%;">
       <div class="carousel-inner">
         <div class="carousel-item active">
          
