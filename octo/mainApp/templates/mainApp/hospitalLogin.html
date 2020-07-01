@@ -15,19 +15,19 @@
             {display: none;} }
 
  /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { .icon{display: none;}
+@media (min-width: 768px) { .icon{display: none;}}
 @media (min-width: 992px) { .icon{display: inline;} }
 }
     </style>
 </head>
 <body >
-    <header style="font-size: 32px; margin:2.5%;margin-left:10%; color: rgb(43, 101, 226); font-weight: bold;">
+    <header style="font-size: 32px; margin:2.5%;margin-left:10%; color: rgb(43, 101, 226); font-weight: bolder;">
       <img src="{% static 'icon.png' %}" alt="image not available" style="height: 150px; width: 150px;  margin-right:5%; " class="icon"/>
         COVID Home Health Care System
     </header>
 
     <!-- Carousel -->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"style="margin-left:10%; margin-right:10%; margin-top:2.5%; height:15%; width:80%;">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"style="margin-left:10%; margin-right:10%; margin-top:2.5%; height:25%; width:80%;">
       <div class="carousel-inner">
         <div class="carousel-item active">
          
@@ -59,14 +59,14 @@
               <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                   Our Mission
+                  What is our Mission?
                   </button>
                 </h2>
               </div>
           
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  As the number of cases of COVID continue to increase at an alarming rate, the number of beds in hospitals for isolation as well as quarantine of patients are becoming inadequate. This situation requires the immediate encouragement of the practices of home quarantine and isolation. To enable this medical practitioners require an application which would enable remote monitoring of patients. Cov HHS aims to be the medium to establish this mode of evaluation of patients.
                 </div>
               </div>
             </div>
@@ -74,13 +74,13 @@
               <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    About this Project
+                    What is this Project?
                   </button>
                 </h2>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  Cov HHS comprises of mobile applications for patients and web application for hospitals for smooth conductance of home quarantine and isolation. The hospitals which register for this portal will be assigned a specific number of patients for monitoring. The patients will upload the necessary medical parameters which will be monitored by the registered physicians of the hospital. Home quarantined or L1 home isolated patients are the beneficiaries of this service.
                 </div>
               </div>
             </div>
@@ -88,13 +88,13 @@
               <div class="card-header" id="headingThree">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    How to be part of this?
+                    Who are needed?
                   </button>
                 </h2>
               </div>
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  Any government approved medical practitioner/organization/hospital/government body can register to be a monitoring doctor, however they should have the immediate reference contacts if the condition of the patient deteriorates. For treatment of COVID patients the hospital should have the necessary treatment facilities permit.
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@
     <form method="POST">
         {% csrf_token %}
         <fieldset > 
-            <legend>
+            <legend style="color:rgb(43, 101, 226); font-size:28px; margin-bottom:4%; font-weight: bold;">
                Hospital Login
             </legend>
             {{form.as_p}}
