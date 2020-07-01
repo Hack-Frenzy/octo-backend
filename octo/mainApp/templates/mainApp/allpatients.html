@@ -10,12 +10,17 @@
     <hr />
     <a href="{% url 'newPatient' %}">New Patient</a>
     {% for user in content %}
-      <div>
-        <h2>{{ user.firstname }}  {{user.lastname}}</h2>
-        <p>Mobile No: {{user.phoneNo}}</p>
-        <p>Temperature: {{user.temperature}}</p>
-        <p>Blood Pressure: {{user.bp}}</p>
-      </div>
+    <div>
+      <h2>{{ user.firstname }} {{user.lastname}}</h2>
+      <p>Temperature: {{user.temperature}}</p>
+      <p>Blood Pressure: {{user.bp}}</p>
+      <p>Mobile No: {{user.phoneNo}}</p>
+      <a href="">Details</a>
+      <!-- The link for the details will not work since the whole email 
+        is returned by user.email and not the username. 
+        This is hence left blank since this way of first splitting the
+        email id to get the username is not feasible and we need a good solution till then -->
+    </div>
     {% endfor %}
   </body>
 </html>
