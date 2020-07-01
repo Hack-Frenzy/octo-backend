@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <a href="{% url 'logout' %}">Logout</a>
-    <hr>
+    <hr />
     <a href="{% url 'newPatient' %}">New Patient</a>
-</body>
+    {% for user in content %}
+      <div>
+        <h2>{{ user.firstname }}  {{user.lastname}}</h2>
+        <p>Mobile No: {{user.phoneNo}}</p>
+        <p>Temperature: {{user.temperature}}</p>
+        <p>Blood Pressure: {{user.bp}}</p>
+      </div>
+    {% endfor %}
+  </body>
 </html>
