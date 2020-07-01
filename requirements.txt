@@ -6,7 +6,6 @@ cachetools==4.1.1
 certifi==2020.6.20
 chardet==3.0.4
 -e git+https://github.com/django/django.git@62d85a283500e9abb0e1c9ec53c59be468f056a0#egg=Django
-firebase-admin==4.3.0
 gcloud==0.17.0
 google-api-core==1.21.0
 google-api-python-client==1.9.3
@@ -17,6 +16,7 @@ google-cloud-firestore==1.7.0
 google-cloud-storage==1.29.0
 google-resumable-media==0.5.1
 googleapis-common-protos==1.52.0
+grpcio==1.30.0
 httplib2==0.18.1
 idna==2.10
 isort==4.3.21

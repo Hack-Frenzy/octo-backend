@@ -1,17 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import PatientRegistrationForm
-import pyrebase
+from pyrebase_settings import firebase
 
-config = {
-    "apiKey": "AIzaSyDq1PSViG6o4yhxaqZ6ftezbNxIATqy5FU",
-    "authDomain": "covid-monitoring-system.firebaseapp.com",
-    "databaseURL": "https://covid-monitoring-system.firebaseio.com",
-    "storageBucket": "covid-monitoring-system.appspot.com",
-    "serviceAccount": "covidmonitor.json"
-}
 
-firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 auth = firebase.auth()
 
@@ -35,17 +27,17 @@ def register_patient(request):
                     'gender': gender, 'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr}
             try:
                 auth.create_user_with_email_and_password(email, password)
-                db.child('Patients').child(email).set(data)
+                db.child('Patients').child(email.split('.')[0]).set(data)
                 return redirect('newPatient')
             except:
                 message2 = "User Already Exist with same Email"
                 form = PatientRegistrationForm()
-                return render(request, 'patients/patientRegister.html', {'form': form, 'message':message2 })
+                return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
         else:
             message2 = form.errors
             form = PatientRegistrationForm()
-            return render(request, 'patients/patientRegister.html', {'form': form, 'message':message2 })
+            return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
     else:
         form = PatientRegistrationForm()
         message2 = ""
-        return render(request, 'patients/patientRegister.html', {'form': form, 'message':message2})
+        return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
