@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detail</title>
+  </head>
+  <body>
+    <a href="{% url 'logout' %}">logout</a>
+    <hr />
+    <div>
+      <h1>{{ user.firstname }} {{ user.lastname }}</h1>
+      <p>MobileNo: {{ user.phoneNo }}</p>
+      <p>Blood Pressure: {{ user.bp }}</p>
+      <p>R/R: {{ user.rr }}</p>
+      <p>Spo2: {{ user.spo2 }}</p>
+      <p>Gender: {{ user.gender }}</p>
+      <p>Email Id: {{ user.email }}</p>
+    </div>
+    <a href="{% url 'allPatients' %}">Back to dashboard</a>
+  </body>
+</html>
