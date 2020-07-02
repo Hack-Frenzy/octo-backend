@@ -8,6 +8,7 @@ db = firebase.database()
 users_query = db.child('Patients').get()
 users = users_query.val()  # Pyrebase object gave the data
 content = []
+
 for user in users:
     # take only the second part of each entry i.e value corresponding to the key
     content.append(users[user])
@@ -16,3 +17,8 @@ for user in users:
 @login_required
 def allPatients(request):
     return render(request, 'mainApp/allpatients.html', {'content': content})
+
+
+def patientDetail(request, email):
+    specific_user = users[email]
+    return render(request, 'mainApp/patientDetail.html', {'user': specific_user})
