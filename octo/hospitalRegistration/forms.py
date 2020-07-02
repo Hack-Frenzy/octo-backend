@@ -34,14 +34,14 @@ class HospitalBookForm(UserCreationForm):
          ('4','Corona Center'),
          ('5','Primary Health Centre'),
          ('6','Others'),]
-     #CostandAvailiable=forms.FileField(label="Cost and Avaliability")
+     CostandAvailiable=forms.ImageField(label="Cost and Avaliability")
      noOfPeopleMonitored=forms.IntegerField(label="No. of People To be Monitored",required=True,)
-     # HospitalDirectives=forms.ImageField(allow_empty_file=False,label="Hospital Directives")
+     HospitalDirectives=forms.ImageField(allow_empty_file=False,label="Hospital Directives")
      govOrPri = forms.ChoiceField(choices=CHOICESTYPE, widget=forms.RadioSelect,label="Are You")
      typeOfHos = forms.ChoiceField(choices=CHOICESHOSTYPE, widget=forms.RadioSelect,label="Health Care Provider Type")
      regNo = forms.IntegerField(label="Registration Number",required=True,)
 
      class Meta:
           model= User
-          fields = ['username','name','email','password1','password2','govOrPri','typeOfHos','regNo','hospiAddress','pincode','phICU','phSuperDoc','phHospi','piAmb','category1','YesorNO','BedNo','noOfPeopleMonitored']
+          fields = ['username','name','email','password1','password2','govOrPri','typeOfHos','regNo','CostandAvailiable','HospitalDirectives','hospiAddress','pincode','phICU','phSuperDoc','phHospi','piAmb','category1','YesorNO','BedNo','noOfPeopleMonitored']
     

@@ -4,10 +4,9 @@ from .forms import HospitalBookForm
 
 def HospitalUser(request):
     if request.method == 'POST':
-        form=HospitalBookForm(request.POST)
-        
+        form=HospitalBookForm(request.POST,request.FILES)
         if form.is_valid():
-                form.save()
+            form.save()
     else:
         form = HospitalBookForm()
     return render(request,'hospitalRegistration/userreg.html',{'form':form})
