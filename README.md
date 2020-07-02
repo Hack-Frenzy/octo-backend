@@ -1,2 +1,2 @@
 # octo-backend
-The backend for the project for IBM hackathon
+The project for IBM hackathon using Django and Bootsrap
