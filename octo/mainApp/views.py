@@ -26,9 +26,5 @@ def patientDetail(request, email):
     users_query = db.child('Patients').get()
     users = users_query.val()  # Pyrebase object gave the data
     content = []
-
-    for user in users:
-        # take only the second part of each entry i.e value corresponding to the key
-        content.append(users[user])
     specific_user = users[email]
     return render(request, 'mainApp/patientDetail.html', {'user': specific_user})
