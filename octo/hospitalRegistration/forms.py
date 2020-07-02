@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import CharField, Textarea, IntegerField, ChoiceField, CheckboxSelectMultiple, ImageField,FileField
+from django.forms import CharField, Textarea, IntegerField, ChoiceField, CheckboxSelectMultiple, ImageField,FileField,MultipleChoiceField
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -20,7 +20,7 @@ class HospitalBookForm(UserCreationForm):
          ('2','L2'),
          ('3','L3'),
          ('4','Monitoring ')]
-     category1 = forms.ChoiceField(choices=CATEGORYTYPE, widget=forms.CheckboxSelectMultiple,label="Category of Covid Patients allowed")
+     category1 = forms.MultipleChoiceField(choices=CATEGORYTYPE, widget=forms.CheckboxSelectMultiple,label="Category of Covid Patients allowed")
      YesNoforApprove=[('1','Yes'),
      ('2','No'),] 
      YesorNO = forms.ChoiceField(choices=YesNoforApprove, widget=forms.RadioSelect,label="Approved to treat Covid-19 Patients")

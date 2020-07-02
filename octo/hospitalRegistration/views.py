@@ -5,6 +5,7 @@ from .forms import HospitalBookForm
 def HospitalUser(request):
     if request.method == 'POST':
         form=HospitalBookForm(request.POST)
+        
         if form.is_valid():
                 form.save()
     else:
