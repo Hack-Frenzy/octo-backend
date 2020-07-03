@@ -49,6 +49,12 @@ class HospitalBookForm(UserCreationForm):
         choices=CHOICESHOSTYPE, widget=forms.RadioSelect, label="Health Care Provider Type")
     regNo = forms.IntegerField(label="Registration Number", required=True,)
 
+    def __init__(self, *args, **kwargs):
+        super(HospitalBookForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
+
     class Meta:
         model = User
         fields = ['username', 'name', 'email', 'password1', 'password2', 'govOrPri', 'typeOfHos', 'regNo', 'CostandAvailiable', 'HospitalDirectives',
