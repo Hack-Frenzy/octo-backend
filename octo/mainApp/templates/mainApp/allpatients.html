@@ -119,10 +119,6 @@
       <div class="col-2">
         <a href="{% url 'patient-detail' user.phoneNo %}">Details</a>
       </div>
-      <!-- The link for the details will not work since the whole email 
-        is returned by user.email and not the username. 
-        This is hence left blank since this way of first splitting the
-        email id to get the username is not feasible and we need a good solution till then -->
     </div>
     <hr style="background-color: red;" />
     {% endfor %}
