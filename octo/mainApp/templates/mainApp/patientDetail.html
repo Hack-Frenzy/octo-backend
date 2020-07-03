@@ -6,6 +6,7 @@
   <body>
     <a href="{% url 'logout' %}">logout</a>
     <hr />
+    <h2>{{ hospitalName }}</h2>
     <div>
       <h1>{{ user.firstname }} {{ user.lastname }}</h1>
       <p>MobileNo: {{ user.phoneNo }}</p>
