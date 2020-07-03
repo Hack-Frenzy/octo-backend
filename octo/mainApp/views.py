@@ -5,6 +5,7 @@ from pyrebase_settings import firebase
 
 db = firebase.database()
 
+
 @login_required
 def allPatients(request):
     global db
@@ -19,12 +20,13 @@ def allPatients(request):
 
     return render(request, 'mainApp/allpatients.html', {'content': content})
 
-
-def patientDetail(request, email):
+@login_required
+def patientDetail(request, phoneNo):
     global db
     # query created and Pyrebase object returned
     users_query = db.child('Patients').get()
     users = users_query.val()  # Pyrebase object gave the data
     content = []
-    specific_user = users[email]
+    # phoneNo converted to string since it is an integer
+    specific_user = users[str(phoneNo)]
     return render(request, 'mainApp/patientDetail.html', {'user': specific_user})

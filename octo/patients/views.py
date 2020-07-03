@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import PatientRegistrationForm
 from pyrebase_settings import firebase
@@ -8,6 +9,7 @@ db = firebase.database()
 auth = firebase.auth()
 
 
+@login_required
 def register_patient(request):
     if request.method == 'POST':
         form = PatientRegistrationForm(request.POST)
@@ -27,10 +29,11 @@ def register_patient(request):
                     'gender': gender, 'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr}
             try:
                 auth.create_user_with_email_and_password(email, password)
-                db.child('Patients').child(email.split('.')[0]).set(data)
+                # the user will be identified by his phoneNo
+                db.child('Patients').child(phoneNo).set(data)
                 return redirect('newPatient')
             except:
-                message2 = "User Already Exist with same Email"
+                message2 = "User Already Exist with same PhoneNo"
                 form = PatientRegistrationForm()
                 return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
         else:
