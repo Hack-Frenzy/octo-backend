@@ -19,6 +19,7 @@ defer==1.0.6
 distlib==0.3.0
 distro-info===0.18ubuntu0.18.04.1
 -e git+https://github.com/django/django.git@62d85a283500e9abb0e1c9ec53c59be468f056a0#egg=Django
+django-crispy-forms==1.9.1
 filelock==3.0.12
 firebase-admin==4.3.0
 gcloud==0.17.0
