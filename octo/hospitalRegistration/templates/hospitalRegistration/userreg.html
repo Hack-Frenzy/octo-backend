@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset > 
-            <legend>
-                Join today
-            </legend>
-            {{form.as_p }}
-        </fieldset>
-        <button type="submit">Sign up</button>
+      {% csrf_token %}
+      <fieldset>
+        <legend>
+          Join today
+        </legend>
+        {{form.as_p }}
+      </fieldset>
+      <button type="submit">Sign up</button>
     </form>
-    <hr>
+    <hr />
     <a href="{% url 'login' %}">Login</a>
-</body>
+  </body>
 </html>
