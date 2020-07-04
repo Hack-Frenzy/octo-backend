@@ -32,9 +32,9 @@ def register_patient(request):
                 # the user will be identified by his phoneNo
                 db.child('Patients').child(
                     hospitalName).child(phoneNo).set(data)
-                return redirect('newPatient')
+                return redirect('user/')
             except:
-                message2 = "User Already Exist with same PhoneNo"
+                message2 = "Patient Already Exist with same Phone Number"
                 form = PatientRegistrationForm()
                 return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
         else:

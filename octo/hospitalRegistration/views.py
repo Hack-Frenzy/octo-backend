@@ -8,6 +8,7 @@ def HospitalUser(request):
         form = HospitalBookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            
     else:
         form = HospitalBookForm()
     return render(request, 'hospitalRegistration/userreg.html', {'form': form})
