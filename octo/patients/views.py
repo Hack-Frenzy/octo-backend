@@ -11,7 +11,7 @@ auth = firebase.auth()
 @login_required
 def register_patient(request):
     if request.method == 'POST':
-        hospitalName = request.user
+        hospitalName = request.user.username
         form = PatientRegistrationForm(request.POST)
         if form.is_valid():
             firstname = form.cleaned_data.get('firstname')

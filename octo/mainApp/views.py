@@ -9,7 +9,7 @@ db = firebase.database()
 @login_required
 def allPatients(request):
     global db
-    hospitalName = request.user
+    hospitalName = request.user.username
     # query created and Pyrebase object returned
     users_query = db.child('Patients').child(hospitalName).get()
     users = users_query.val()  # Pyrebase object gave the data
@@ -25,7 +25,7 @@ def allPatients(request):
 @login_required
 def patientDetail(request, phoneNo):
     global db
-    hospitalName = request.user
+    hospitalName = request.user.username
     # query created and Pyrebase object returned
     users_query = db.child('Patients').child(hospitalName).get()
     users = users_query.val()  # Pyrebase object gave the data
