@@ -15,11 +15,7 @@
   </head>
   <body style="margin-left: 2%;">
     <header
-      style="
-        font-size: 32px;
-        color: rgb(43, 101, 226);
-        font-weight: bold;
-      "
+      style="font-size: 32px; color: rgb(43, 101, 226); font-weight: bold;"
     >
       <div class="row">
         <img
@@ -62,12 +58,14 @@
         });
       }
     </script>
-    <hr style="background-color: aqua;"/>
+    <hr style="background-color: aqua;" />
     <div class="row">
       <div class="col-9"><a href="{% url 'logout' %}">Logout</a></div>
       <div class="col-3"><a href="{% url 'newPatient' %}">New Patient</a></div>
+      <div class="col-9">{{ hospitalName}}</div>
+      <!-- yahan koi iski placing dekh lena, mujhse na ho rhi -->
     </div>
-    <hr style="background-color: aqua;"/>
+    <hr style="background-color: aqua;" />
     <div class="row" style="font-size: 12px; color: rgb(0, 0, 0);">
       <div class="col-4">
         <h2 style="font-size: 13px; padding: 10px 15px;">
@@ -75,19 +73,19 @@
         </h2>
       </div>
       <div class="col-2">
-        <p style=" padding: 10px 15px;">Temperature</p>
+        <p style="padding: 10px 15px;">Temperature</p>
       </div>
       <div class="col-2">
-        <p style=" padding: 10px 15px;">Blood Pressure</p>
+        <p style="padding: 10px 15px;">Blood Pressure</p>
       </div>
       <div class="col-2">
-        <p style=" padding: 10px 15px;">Mobile No</p>
+        <p style="padding: 10px 15px;">Mobile No</p>
       </div>
       <div class="col-2">
         Details
       </div>
     </div>
-    <hr style="background-color: red;"/>
+    <hr style="background-color: red;" />
     {% for user in content %}
     <div class="row">
       <div class="col-4">
@@ -118,14 +116,10 @@
         <p>{{user.phoneNo}}</p>
       </div>
       <div class="col-2">
-        <a href="">Details</a>
+        <a href="{% url 'patient-detail' user.phoneNo %}">Details</a>
       </div>
-      <!-- The link for the details will not work since the whole email 
-        is returned by user.email and not the username. 
-        This is hence left blank since this way of first splitting the
-        email id to get the username is not feasible and we need a good solution till then -->
     </div>
-    <hr style="background-color: red;"/>
+    <hr style="background-color: red;" />
     {% endfor %}
 
     <script

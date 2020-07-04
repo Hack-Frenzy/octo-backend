@@ -1,12 +1,12 @@
 from django import forms
-from django.forms import CharField, IntegerField, ChoiceField, FloatField
+from django.forms import CharField, IntegerField, ChoiceField, FloatField, PasswordInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
 class PatientRegistrationForm(UserCreationForm):
-    CHOICESGENDER = [('1', 'Female'), ('2', 'Male'),
-                     ('3', 'Prefer not to tell'), ]
+    CHOICESGENDER = [('Female', 'Female'), ('Male', 'Male'),
+                     ('Prefer not to tell', 'Prefer not to tell'), ]
 
     firstname = CharField(label="First Name", required=True, strip=True)
     lastname = CharField(label="Last Name", required=True, strip=True)
@@ -23,7 +23,8 @@ class PatientRegistrationForm(UserCreationForm):
     rr = FloatField(label="R/R", required=True,
                     widget=forms.NumberInput(attrs={'placeholder': 'R/R'}))
 
-    class Meta:
-        model = User
-        fields = ['firstname', 'lastname', 'phoneNo', 'email',
-                  'gender', 'temperature', 'bp', 'spo2', 'rr']
+    # The following function overwrites the __init__ function and removes the password fields in the login
+    def __init__(self, *args, **kwargs):
+        super(PatientRegistrationForm, self).__init__(*args, **kwargs)
+        for fieldname in ['username', 'password1', 'password2']:
+            del self.fields[fieldname]

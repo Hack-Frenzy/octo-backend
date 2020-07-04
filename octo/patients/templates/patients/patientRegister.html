@@ -6,8 +6,10 @@
   <body>
     {{message}}
     <form method="POST">
-      {% csrf_token %} 
+      {% csrf_token %}
       {{ form }}
+      The password of the patient is by default the
+      phone number, which the patient will be prompted to change on the first login.
       <button type="submit">Register</button>
     </form>
   </body>
