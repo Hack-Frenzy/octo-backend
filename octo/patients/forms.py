@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class PatientRegistrationForm(UserCreationForm):
-    CHOICESGENDER = [('Female', 'Female'), ('Male', 'Male'), ('Transgender', 'Transgender'), ]
+    CHOICESGENDER = [('Female', 'Female'), ('Male', 'Male'), ('Prefer not to tell', 'Prefer not to tell'), ]
     
     firstname = CharField(label="First Name", required=True, strip=True)
     lastname = CharField(label="Last Name", required=True, strip=True)
