@@ -10,12 +10,13 @@ db = firebase.database()
 def allPatients(request):
     global db
     hospitalName = request.user.username
+   
     # query created and Pyrebase object returned
-    users_query = db.child('Patients').child(hospitalName).get()
-    users = users_query.val()  # Pyrebase object gave the data
+    users_query = db.child('Patients').child(hospitalName).order_by_child('mews').start_at(0).end_at(14).get()
+    users = users_query.val() # Pyrebase object gave the data
     content = []
 
-    for user in users:
+    for user in reversed(users):
         # take only the second part of each entry i.e value corresponding to the key
         content.append(users[user])
 

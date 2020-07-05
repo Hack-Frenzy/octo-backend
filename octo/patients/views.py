@@ -6,7 +6,7 @@ from pyrebase_settings import firebase
 
 db = firebase.database()
 auth = firebase.auth()
-
+zero = 0
 
 @login_required
 def register_patient(request):
@@ -19,14 +19,19 @@ def register_patient(request):
             phoneNo = form.cleaned_data.get('phoneNo')
             email = form.cleaned_data.get('email')
             gender = form.cleaned_data.get('gender')
+            age = form.cleaned_data.get('age')
+            aadharno = form.cleaned_data.get('aadharno')
+            bloodgrp = form.cleaned_data.get('bloodgrp')
             temperature = form.cleaned_data.get('temperature')
-            bp = form.cleaned_data.get('bp')
-            spo2 = form.cleaned_data.get('spo2')
-            rr = form.cleaned_data.get('rr')
+            bp = 0
+            spo2 = 0
+            heartrate = 0
+            rr = 0
+            avpu = 0
+            mews = 0
             password = str(phoneNo)
-
-            data = {'firstname': firstname, 'lastname': lastname, 'phoneNo': phoneNo, 'email': email,
-                    'gender': gender, 'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr}
+           
+            data = {'firstname': firstname, 'lastname': lastname, 'phoneNo': phoneNo,  'email': email, 'gender': gender, 'age': age, 'aadharno': aadharno, 'bloodgrp': bloodgrp,'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr, 'avpu':avpu, 'heartrate':heartrate, 'mews': mews }
             try:
                 auth.create_user_with_email_and_password(email, password)
                 # the user will be identified by his phoneNo

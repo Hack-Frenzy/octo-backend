@@ -16,11 +16,11 @@ class PatientRegistrationForm(UserCreationForm):
     age =  IntegerField(label="Age", required=True)    
     aadharno =  IntegerField(label="Aadhar Number", required=True)  
     bloodgrp = CharField(label="Blood Group",max_length=5, required=True, strip=True)              
-    temperature = FloatField(label="Temperature",widget=forms.HiddenInput(), initial=0,disabled=True)
-    bp = FloatField(label="Blood Pressure", required=True, widget=forms.HiddenInput(), initial=0,disabled=True)
-    spo2 = FloatField(label="SpO2", widget=forms.HiddenInput(), initial=0,disabled=True)
-    rr = FloatField(label="R/R",widget=forms.HiddenInput(), initial=0,disabled=True)
-    
+    # temperature = FloatField(label="Temperature",widget=forms.HiddenInput(), initial=0,disabled=True)
+    # bp = FloatField(label="Blood Pressure", required=True, widget=forms.HiddenInput(), initial=0,disabled=True)
+    # spo2 = FloatField(label="SpO2", widget=forms.HiddenInput(), initial=0,disabled=True)
+    # rr = FloatField(label="R/R",widget=forms.HiddenInput(), initial=0,disabled=True)
+    # mews = FloatField(label="Mews",widget=forms.HiddenInput(), initial=0,disabled=True)
     # The following function overwrites the __init__ function and removes the help text within password fields in the login template
     def __init__(self, *args, **kwargs):
         super(PatientRegistrationForm, self).__init__(*args, **kwargs)
