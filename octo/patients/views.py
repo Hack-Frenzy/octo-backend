@@ -22,7 +22,7 @@ def register_patient(request):
             age = form.cleaned_data.get('age')
             aadharno = form.cleaned_data.get('aadharno')
             bloodgrp = form.cleaned_data.get('bloodgrp')
-            temperature = form.cleaned_data.get('temperature')
+            temperature = 0
             bp = 0
             spo2 = 0
             heartrate = 0
