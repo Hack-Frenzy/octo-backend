@@ -17,27 +17,27 @@ class HospitalBookForm(UserCreationForm):
         label="Supervising Doctor's Contact No", required=True,)
     phHospi = forms.IntegerField(label="Hospital's contact No", required=True,)
     piAmb = forms.IntegerField(label="Ambulance Contact  No", required=True,)
-    CATEGORYTYPE = [('1', 'L1'),
-                    ('2', 'L2'),
-                    ('3', 'L3'),
-                    ('4', 'Monitoring ')]
+    CATEGORYTYPE = [('L1', 'L1'),
+                    ('L2', 'L2'),
+                    ('L3', 'L3'),
+                    ('Monitoring', 'Monitoring')]
     category1 = forms.MultipleChoiceField(
         choices=CATEGORYTYPE, widget=forms.CheckboxSelectMultiple, label="Category of Covid Patients allowed")
-    YesNoforApprove = [('1', 'Yes'),
-                       ('2', 'No'), ]
+    YesNoforApprove = [('Yes', 'Yes'),
+                       ('No', 'No'), ]
     YesorNO = forms.ChoiceField(
         choices=YesNoforApprove, widget=forms.RadioSelect, label="Approved to treat Covid-19 Patients")
-    CHOICESTYPE = [('1', 'Government'),
-                   ('2', 'Private')]
+    CHOICESTYPE = [('Government', 'Government'),
+                   ('Private', 'Private')]
     BedNo = forms.IntegerField(
         label="Total Number of Beds For Covid Patients", required=True,)
 
-    CHOICESHOSTYPE = [('1', 'Hospital'),
-                      ('2', 'Medical College / Institute'),
-                      ('3', 'Community Health Centre'),
-                      ('4', 'Corona Center'),
-                      ('5', 'Primary Health Centre'),
-                      ('6', 'Others'), ]
+    CHOICESHOSTYPE = [('Hospital', 'Hospital'),
+                      ('Medical College / Institute', 'Medical College / Institute'),
+                      ('Community Health Centre', 'Community Health Centre'),
+                      ('Corona Center', 'Corona Center'),
+                      ('Primary Health Centre', 'Primary Health Centre'),
+                      ('Others', 'Others'), ]
     CostandAvailiable = forms.ImageField(label="Cost and Avaliability")
     noOfPeopleMonitored = forms.IntegerField(
         label="No. of People To be Monitored", required=True,)

@@ -7,7 +7,6 @@ from pyrebase_settings import firebase
 db = firebase.database()
 auth = firebase.auth()
 
-
 @login_required
 def register_patient(request):
     if request.method == 'POST':
@@ -19,22 +18,27 @@ def register_patient(request):
             phoneNo = form.cleaned_data.get('phoneNo')
             email = form.cleaned_data.get('email')
             gender = form.cleaned_data.get('gender')
-            temperature = form.cleaned_data.get('temperature')
-            bp = form.cleaned_data.get('bp')
-            spo2 = form.cleaned_data.get('spo2')
-            rr = form.cleaned_data.get('rr')
+            age = form.cleaned_data.get('age')
+            aadharno = form.cleaned_data.get('aadharno')
+            bloodgrp = form.cleaned_data.get('bloodgrp')
+            temperature = 0
+            bp = 0
+            spo2 = 0
+            heartrate = 0
+            rr = 0
+            avpu = 0
+            mews = 0
             password = str(phoneNo)
-
-            data = {'firstname': firstname, 'lastname': lastname, 'phoneNo': phoneNo, 'email': email,
-                    'gender': gender, 'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr}
+           
+            data = {'firstname': firstname, 'lastname': lastname, 'phoneNo': phoneNo,  'email': email, 'gender': gender, 'age': age, 'aadharno': aadharno, 'bloodgrp': bloodgrp,'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr, 'avpu':avpu, 'heartrate':heartrate, 'mews': mews }
             try:
                 auth.create_user_with_email_and_password(email, password)
                 # the user will be identified by his phoneNo
                 db.child('Patients').child(
                     hospitalName).child(phoneNo).set(data)
-                return redirect('newPatient')
+                return redirect('user/')
             except:
-                message2 = "User Already Exist with same PhoneNo"
+                message2 = "Patient Already Exist with same Phone Number"
                 form = PatientRegistrationForm()
                 return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
         else:
