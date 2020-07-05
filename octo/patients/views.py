@@ -6,7 +6,6 @@ from pyrebase_settings import firebase
 
 db = firebase.database()
 auth = firebase.auth()
-zero = 0
 
 @login_required
 def register_patient(request):
