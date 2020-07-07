@@ -3,9 +3,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import PatientRegistrationForm
 from pyrebase_settings import firebase
+import asyncio
 
 db = firebase.database()
 auth = firebase.auth()
+
 
 @login_required
 def register_patient(request):
@@ -29,13 +31,20 @@ def register_patient(request):
             avpu = 0
             mews = 0
             password = str(phoneNo)
-           
-            data = {'firstname': firstname, 'lastname': lastname, 'phoneNo': phoneNo,  'email': email, 'gender': gender, 'age': age, 'aadharno': aadharno, 'bloodgrp': bloodgrp,'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr, 'avpu':avpu, 'heartrate':heartrate, 'mews': mews }
+
+            data = {'firstname': firstname, 'lastname': lastname, 'phoneNo': phoneNo,  'email': email, 'gender': gender, 'age': age, 'aadharno': aadharno,
+                    'bloodgrp': bloodgrp, 'temperature': temperature, 'bp': bp, 'spo2': spo2, 'rr': rr, 'avpu': avpu, 'heartrate': heartrate, 'mews': mews}
+            accesst = {'hospital': hospitalName,
+                       'phno': phoneNo}
             try:
                 auth.create_user_with_email_and_password(email, password)
                 # the user will be identified by his phoneNo
                 db.child('Patients').child(
                     hospitalName).child(phoneNo).set(data)
+                user = auth.sign_in_with_email_and_password(email, password)
+                uid = (user['localId'])
+                db.child('Access').child(
+                    uid).set(accesst)
                 return redirect('user/')
             except:
                 message2 = "Patient Already Exist with same Phone Number"
