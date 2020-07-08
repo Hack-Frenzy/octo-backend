@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import PatientRegistrationForm
 from pyrebase_settings import firebase
-import asyncio
 
 db = firebase.database()
 auth = firebase.auth()
