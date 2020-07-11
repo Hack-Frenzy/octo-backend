@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="icon" type="image/x-icon" href="{% static 'icon.png' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600&family=Open+Sans:ital@1&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,7 +15,7 @@
     />
     <title>Main Page</title>
   </head>
-  <body style="margin-left: 2%;">
+  <body style="margin-left: 2.5%; margin-right: 2.5%;">
     <header
       style="font-size: 32px; color: rgb(43, 101, 226); font-weight: bold;"
     >
@@ -59,65 +60,78 @@
         });
       }
     </script>
-    <hr style="background-color: aqua;" />
-    <div class="row">
-      <div class="col-9"><a href="{% url 'logout' %}">Logout</a></div>
-      <div class="col-3"><a href="{% url 'newPatient' %}">New Patient</a></div>
-      <div class="col-9">{{ hospitalName}}</div>
+    
+    <div class="row" style="margin-bottom: 2%; margin-top: 2%;">
+      <div class="col"><a href="{% url 'newPatient' %}" type="button" class="btn btn-outline-info">New Patient</a></div>
+      <div class="col-9" style="font-size: 32px; font-family: 'Open Sans', sans-serif; text-align: center; color: rgb(87, 128, 216);">{{ hospitalName}}</div>
+      <div class="col" ><a href="{% url 'logout' %}" type="button" class="btn btn-outline-danger">Logout</a></div>
+      
       <!-- yahan koi iski placing dekh lena, mujhse na ho rhi -->
     </div>
     <hr style="background-color: aqua;" />
-    <div class="row" style="font-size: 12px; color: rgb(0, 0, 0);">
-      <div class="col-4">
-        <h2 style="font-size: 13px; padding: 10px 15px;">
+    <div class="row justify-content-between" style="font-size: 15px; color: rgb(0, 0, 0);">
+      <div class="col">
+        <p style=" padding: 10px 15px;">
           Patients Name
-        </h2>
+        </p>
       </div>
-      <div class="col-2">
-        <p style="padding: 10px 15px;">Temperature</p>
+      <div class="col">
+        <p style="padding: 10px 15px;">Mews</p>
       </div>
-      <div class="col-2">
+      <div class="col">
+        <p style="padding: 10px 15px;">Respiratory Rate</p>
+      </div>
+      <div class="col">
+        <p style="padding: 10px 15px;">AVPU</p>
+      </div>
+      <div class="col">
         <p style="padding: 10px 15px;">Blood Pressure</p>
       </div>
-      <div class="col-2">
-        <p style="padding: 10px 15px;">Mobile No</p>
+      <div class="col">
+        <p style="padding: 10px 15px;">SpO2</p>
       </div>
-      <div class="col-2">
-        Details
+      <div class="col">
+        <p style="padding: 10px 15px;">Heart Rate</p>
       </div>
     </div>
     <hr style="background-color: red;" />
     {% for user in content %}
-    <div class="row">
-      <div class="col-4">
-        <h2
+    <div class="row" style="font-size: 15px; color: rgb(0, 0, 0); ">
+      <div class="col" style="margin-left: 2%;">
+        <a href="{% url 'patient-detail' user.phoneNo %}"
           style="
             background-color: rgb(255, 254, 254);
             border: 0;
-            padding: 10px 15px;
+            
             color: #007a47;
             border-radius: 3px;
             width: 250px;
             cursor: pointer;
-            font-size: 14px;
-            overflow: hidden;
+            font-size: 17px;
+          
             font-weight: bold;
-          "
+          " title="Click for more details"
         >
           {{ user.firstname }} {{user.lastname}}
-        </h2>
+      </a>
       </div>
-      <div class="col-2">
-        <p>{{user.temperature}}</p>
+      <div class="col" >
+        <p>{{user.mews}}</p>
       </div>
-      <div class="col-2">
+      <div class="col">
+        <p>{{user.rr}}</p>
+      </div>
+      <div class="col">
+        <p>{{user.avpu}}</p>
+      </div>
+      <div class="col">
         <p>{{user.bp}}</p>
       </div>
-      <div class="col-2">
-        <p>{{user.phoneNo}}</p>
+      <div class="col">
+        <p>{{user.spo2}}</p>
       </div>
-      <div class="col-2">
-        <a href="{% url 'patient-detail' user.phoneNo %}">Details</a>
+      <div class="col">
+        <p>{{user.heartrate}}</p>
       </div>
     </div>
     <hr style="background-color: red;" />

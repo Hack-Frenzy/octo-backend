@@ -55,5 +55,5 @@ def register_patient(request):
             return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
     else:
         form = PatientRegistrationForm()
-        message2 = ""
+        message2 = None
         return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
