@@ -18,10 +18,11 @@
     />
   </head>
   <body> 
-      <div class="alert alert-primary" role="alert" style="text-align: center; margin-top: 5%; width: 100%;">
-    {{message}}
+    {% if message != None %}
+      <div class="alert alert-primary" role="alert" style="text-align: center; margin-top: 5%; width: 50%; margin-left:15% ;"> 
+        {{message}}
   </div>
-    
+  {% endif %}
     <div style="margin: 18%; margin-top:5%; ">
       {% load crispy_forms_tags %}
       <legend

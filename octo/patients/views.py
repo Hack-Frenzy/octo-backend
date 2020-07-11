@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import PatientRegistrationForm
 from pyrebase_settings import firebase
-import asyncio
 
 db = firebase.database()
 auth = firebase.auth()
@@ -56,5 +55,5 @@ def register_patient(request):
             return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
     else:
         form = PatientRegistrationForm()
-        message2 = ""
+        message2 = None
         return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
