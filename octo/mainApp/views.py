@@ -21,7 +21,7 @@ def allPatients(request):
         return render(request, 'mainApp/allpatients.html', {'content': content, 'hospitalName': hospitalName})
          # query created and Pyrebase object returned
     else:
-        return redirect('newPatient') 
+        return render(request, 'mainApp/nopatients.html', {'hospitalName': hospitalName}) 
 
 
 @login_required
