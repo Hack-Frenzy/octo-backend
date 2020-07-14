@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from pyrebase_settings import firebase
 
@@ -10,17 +10,18 @@ db = firebase.database()
 def allPatients(request):
     global db
     hospitalName = request.user.username
-   
-    # query created and Pyrebase object returned
-    users_query = db.child('Patients').child(hospitalName).order_by_child('mews').start_at(0).end_at(14).get()
-    users = users_query.val() # Pyrebase object gave the data
-    content = []
+    if db.child('Patients').child(hospitalName).shallow().get().val():
+        users_query = db.child('Patients').child(hospitalName).order_by_child('mews').start_at(0).end_at(14).get()
+        users = users_query.val() # Pyrebase object gave the data
+        content = []
 
-    for user in reversed(users):
+        for user in reversed(users):
+            content.append(users[user])
         # take only the second part of each entry i.e value corresponding to the key
-        content.append(users[user])
-
-    return render(request, 'mainApp/allpatients.html', {'content': content, 'hospitalName': hospitalName})
+        return render(request, 'mainApp/allpatients.html', {'content': content, 'hospitalName': hospitalName})
+         # query created and Pyrebase object returned
+    else:
+        return render(request, 'mainApp/nopatients.html', {'hospitalName': hospitalName}) 
 
 
 @login_required
