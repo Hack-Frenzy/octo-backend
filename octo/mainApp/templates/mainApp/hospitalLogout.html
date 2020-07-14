@@ -9,7 +9,7 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <title>Document</title>
+    <title>Logged Out</title>
   </head>
 
   <body>
@@ -35,23 +35,14 @@
       </div>
     </header>
     <br />
-    <h1 style="background-color: #53e3a6; color: azure; font-weight: bold;">
+    <h2 style="background-color: #53e3a6; text-align: center; padding: 5px; color: azure; font-weight: bold;">
       You have Been Successfully Logged out
-    </h1>
+    </h2>
     <div class="row">
       <div class="col-sm-12">
         <a href="{% url 'login' %}"
           ><button
-            style="
-              background-color: white;
-              border: 0;
-              padding: 10px 15px;
-              color: #53e3a6;
-              border-radius: 3px;
-              width: 250px;
-              cursor: pointer;
-              font-size: 18px;
-            "
+          type="button" class="btn btn-outline-success" style="margin-left: 5%; margin-top: 2%; margin-bottom: 2%;"
           >
             Login Again
           </button></a
@@ -64,24 +55,25 @@
       class="carousel slide carousel-fade"
       data-ride="carousel"
       style="
-        border-style: solid;
-        border-width: 80px;
-        background-color: #53e3a6;
-        border-color: #53e3a6;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2.5%;
+        height: 25%;
+        width: 80%;
       "
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
-            src="{% static 'corona2.jpg' %}"
+            src="{% static 'corona1.jpg' %}"
             class="d-block w-100"
             alt="image not available"
-            style="border-radius: 5%; background-color: #53e3a6;"
+            style="border-radius: 5%;"
           />
         </div>
         <div class="carousel-item">
           <img
-            src="{% static 'corona1.jpg' %}"
+            src="{% static 'corona2.jpg' %}"
             class="d-block w-100"
             alt="image not available"
             style="border-radius: 5%;"
