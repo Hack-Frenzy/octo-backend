@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'icon.png' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600&family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <title>Main Page</title>
+  </head>
+  <body style="margin-left: 2.5%; margin-right: 2.5%;">
+    <header
+      style="font-size: 32px; color: rgb(43, 101, 226); font-weight: bold;"
+    >
+      <div class="row">
+        <img
+          class="col-1.4"
+          src="{% static 'icon.png' %}"
+          alt="image not available"
+          style="
+            height: 80px;
+            width: 80px;
+            margin-left: 10%;
+            margin-right: 5%;
+            margin-top: 2%;
+          "
+        />
+        <h1 class="col" style="margin-top: 3%;">
+          COVID Home Health Care System
+        </h1>
+      </div>
+    </header>
+    {% csrf_token %}
+    <script>
+      const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]")
+        .value;
+    </script>
+    <script>
+      $(document).ready(function (event) {
+        setInterval("refreshPage()", 15000);
+      });
+
+      function refreshPage() {
+        $.ajaxSetup({ cache: false });
+        $.ajax({
+          type: "POST",
+          url: "/user/",
+          headers: { "X-CSRFToken": csrftoken },
+          success: function (response) {
+            location.reload(true);
+            //do something with 'response'
+          },
+        });
+      }
+    </script>
+    
+    <div class="row" style="margin-bottom: 2%; margin-top: 2%;">
+      <div class="col"><a href="{% url 'newPatient' %}" type="button" class="btn btn-outline-info">New Patient</a></div>
+      <div class="col-9" style="font-size: 32px; font-family: 'Open Sans', sans-serif; text-align: center; color: rgb(87, 128, 216);">{{ hospitalName}}</div>
+      <div class="col" ><a href="{% url 'logout' %}" type="button" class="btn btn-outline-danger">Logout</a></div>
+      
+      <!-- yahan koi iski placing dekh lena, mujhse na ho rhi -->
+    </div>
+    <hr style="background-color: aqua;" />
+    <p style="margin:10%; text-align:center; font-size:28px; color: #007a47;">You have no patients registered uptil now so, kindly register your patients by clicking on the above New Patient button!</p>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
