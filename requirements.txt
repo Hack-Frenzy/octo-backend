@@ -5,6 +5,7 @@ CacheControl==0.12.6
 cachetools==4.1.1
 certifi==2020.6.20
 chardet==3.0.4
+colorama==0.4.3
 -e git+https://github.com/django/django.git@62d85a283500e9abb0e1c9ec53c59be468f056a0#egg=Django
 django-crispy-forms==1.9.1
 gcloud==0.17.0
@@ -31,14 +32,15 @@ protobuf==3.12.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycodestyle==2.6.0
-pycryptodome==3.6.6
+pycryptodome==3.4.3
 pylint==2.5.2
 pylint-django==2.0.15
 pylint-plugin-utils==0.6
-Pyrebase4==4.3.0
+Pyrebase==3.0.27
+python-decouple==3.3
 python-jwt==2.0.1
 pytz==2020.1
-requests==2.20.0
+requests==2.11.1
 requests-toolbelt==0.7.0
 rsa==4.6
 six==1.15.0
