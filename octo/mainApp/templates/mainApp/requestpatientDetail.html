@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>Patient Details</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'icon.png' %}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body >
+    <div style="position: relative;">
+    <h1 style="
+    font-weight: bold;
+    color: rgb(3, 115, 206);
+    margin-top:2%;
+    font-variant: small-caps;
+    text-align: center;
+  ">{{ hospitalName }}</h1>
+
+  <a href="{% url 'requests' %}" type="button" class="btn btn-primary" style=" margin-left:2%;" title="Back to Request page">Back to dashboard</a>
+  <a href="{% url 'logout' %}" type="button" class="btn btn-outline-danger" style="margin-left: 90%;" title="logout">Logout</a>
+</div>
+
+  <hr>
+  <h4 style="text-align:center; color:rgb(0, 128, 0) ; text-decoration: underline;">Patient Name:&nbsp;&nbsp;{{ user.name }}</h4>
+
+    <div class="col px-md-5"style="margin-left: 15%; margin-right:15%;margin-top:5%; height:auto; width:600px; " >
+      <h5 style="color: goldenrod;">Personal Details</h5>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info" style="margin: 0.5%;">MobileNo: {{ user.phno }}</li>
+    
+      <li class="list-group-item list-group-item-info"style="margin: 0.5%;">Aadhar Number: {{ user.aadharno }}</li>
+    
+      <li class="list-group-item list-group-item-info" style="margin: 0.5%;">Age: {{ user.age }}</li>
+      <li class="list-group-item list-group-item-info" style="margin: 0.5%;">Blood Group: {{ user.bloodGroup }}</li>
+    </ul>
+    <div style="margin-top: 10%;">
+       <button type="button" class="btn btn-success" style="margin:2%;">Accept</button>
+       <button type="button" class="btn btn-danger" style="margin:2%;">Decline</button>
+    </div>
+</div>
+    
+  
+
+  </body>
+</html>

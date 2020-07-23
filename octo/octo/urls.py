@@ -15,6 +15,7 @@ urlpatterns = [
     path('logout/',login_required(auth_views.LogoutView.as_view(template_name='mainApp/hospitalLogout.html')),name='logout'),
     path('user/',include('mainApp.urls')),
     path('new_patient', register_patient, name='newPatient'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
