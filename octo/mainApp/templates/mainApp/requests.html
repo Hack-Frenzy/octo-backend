@@ -60,83 +60,85 @@
         });
       }
     </script>
-    
-    <div class="row" style="margin-bottom: 2%; margin-top: 2%;">
-      <div class="col"><a href="{% url 'newPatient' %}" type="button" class="btn btn-outline-info">New Patient</a></div>
-      <div class="col-9" style="font-size: 32px; font-family: 'Open Sans', sans-serif; text-align: center; color: rgb(87, 128, 216);">{{ hospitalName}}</div>
-      <div class="col" ><a href="{% url 'logout' %}" type="button" class="btn btn-outline-danger">Logout</a></div>
-      <!-- yahan koi iski placing dekh lena, mujhse na ho rhi -->
+    <div class="d-flex flex-row justify-content-around flex-wrap" style="margin: 5%;  justify-self: start;">
+      <div class="p-2 bd-highlight" style="background-color: #8bbdd9; padding:5%; ">
+        
+       <h4>Contact with Patients</h4>
+       <div>
+         <ul>
+           {% if content1 != None %}
+           {% for user in content1 %}
+           <li><a href="{% url 'contact-patient-detail' user.uid %}"
+            style="
+              border: 0;
+              color: #007a47;
+              border-radius: 3px;
+              width: 250px;
+              cursor: pointer;
+              font-size: 17px;
+              font-weight: bold;
+            " title="Click for more details"
+          >{{ user.name }}</a></li>
+           {% endfor %}
+           {% endif %}
+         </ul>
+         {% if content1 == None %}
+           <p>No requests</p> 
+           {% endif %}
+       </div>
+      </div>
+      <div class="p-2 bd-highlight" style="background-color: #8bbdd9;padding:5%;">
+        <h4>COVID Positive Patients</h4>
+        <div>
+          <ul>
+            {% if content2 != None %}
+            {% for user2 in content2 %}
+            <li><a href="{% url 'covid-patient-detail' user2.uid %}"
+              style="
+                border: 0;
+                color: #007a47;
+                border-radius: 3px;
+                width: 250px;
+                cursor: pointer;
+                font-size: 17px;
+                font-weight: bold;
+              " title="Click for more details"
+            >{{user2.name}}</a></li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+          {% if content2 == None %}
+            <p>No requests</p> 
+            {% endif %}
+        </div> 
+      </div>
+      <div class="p-2 bd-highlight" style="background-color: #8bbdd9;padding:5%;">
+        <h4>Post COVID Patients</h4>
+        <div>
+          <ul>
+            {% if content3 != None %}
+            {% for user3 in content3 %}
+            <li><a href="{% url 'postcovid-patient-detail' user3.uid %}"
+              style="
+                border: 0;
+                color: #007a47;
+                border-radius: 3px;
+                width: 250px;
+                cursor: pointer;
+                font-size: 17px;
+                font-weight: bold;
+              " title="Click for more details"
+            >{{user3.name}}</a></li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+          {% if content3 == None %}
+            <p>No requests</p> 
+            {% endif %}
+        </div>
+      </div>
     </div>
-    <a href="{% url 'requests' %}" type="button" class="btn btn-outline-warning">Requests of Patients</a>
-    <hr style="background-color: aqua;" />
-    <div class="row justify-content-between" style="font-size: 15px; color: rgb(0, 0, 0);">
-      <div class="col">
-        <p style=" padding: 10px 15px;">
-          Patients Name
-        </p>
-      </div>
-      <div class="col">
-        <p style="padding: 10px 15px;">Mews</p>
-      </div>
-      <div class="col">
-        <p style="padding: 10px 15px;">Respiratory Rate</p>
-      </div>
-      <div class="col">
-        <p style="padding: 10px 15px;">AVPU</p>
-      </div>
-      <div class="col">
-        <p style="padding: 10px 15px;">Blood Pressure</p>
-      </div>
-      <div class="col">
-        <p style="padding: 10px 15px;">SpO2</p>
-      </div>
-      <div class="col">
-        <p style="padding: 10px 15px;">Heart Rate</p>
-      </div>
-    </div>
-    <hr style="background-color: red;" />
-    {% for user in content %}
-    <div class="row" style="font-size: 15px; color: rgb(0, 0, 0); ">
-      <div class="col" style="margin-left: 2%;">
-        <a href="{% url 'patient-detail' user.phoneNo %}"
-          style="
-            background-color: rgb(255, 254, 254);
-            border: 0;
-            
-            color: #007a47;
-            border-radius: 3px;
-            width: 250px;
-            cursor: pointer;
-            font-size: 17px;
-          
-            font-weight: bold;
-          " title="Click for more details"
-        >
-          {{ user.firstname }} {{user.lastname}}
-      </a>
-      </div>
-      <div class="col" >
-        <p>{{user.mews}}</p>
-      </div>
-      <div class="col">
-        <p>{{user.rr}}</p>
-      </div>
-      <div class="col">
-        <p>{{user.avpu}}</p>
-      </div>
-      <div class="col">
-        <p>{{user.bp}}</p>
-      </div>
-      <div class="col">
-        <p>{{user.spo2}}</p>
-      </div>
-      <div class="col">
-        <p>{{user.heartrate}}</p>
-      </div>
-    </div>
-    <hr style="background-color: red;" />
-    {% endfor %}
-
+   
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
