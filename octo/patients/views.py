@@ -36,7 +36,7 @@ def register_patient(request):
             accesst = {'hospital': hospitalName,
                        'phno': phoneNo}
             try:
-                if db.child('Patients').child(phoneNo).shallow().get():
+                if db.child('Patients').child(hospitalName).child(phoneNo).shallow().get():
                     message1 = "Patient Already exists with the same Phone Number"
                     form = PatientRegistrationForm()
                     return render(request, 'patients/patientRegister.html', {'form': form, 'message': message1})
