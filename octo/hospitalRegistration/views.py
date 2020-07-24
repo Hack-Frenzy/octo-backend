@@ -11,7 +11,7 @@ def HospitalUser(request):
     if request.method == 'POST':
         form = HospitalBookForm(request.POST, request.FILES)
         if form.is_valid():
-            firstname = form.cleaned_data.get('name')
+            firstname = form.cleaned_data.get('username')
             regno = form.cleaned_data.get('regNo')    
             email = form.cleaned_data.get('email')    
             address = form.cleaned_data.get('hospiAddress')                        
