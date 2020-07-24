@@ -66,7 +66,7 @@
        <h4>Contact with Patients</h4>
        <div>
          <ul>
-           {% if content1 != None %}
+           {% if content1 != "None" %}
            {% for user in content1 %}
            <li><a href="{% url 'contact-patient-detail' user.uid %}"
             style="
@@ -82,7 +82,7 @@
            {% endfor %}
            {% endif %}
          </ul>
-         {% if content1 == None %}
+         {% if content1 == "None" %}
            <p>No requests</p> 
            {% endif %}
        </div>
@@ -91,7 +91,7 @@
         <h4>COVID Positive Patients</h4>
         <div>
           <ul>
-            {% if content2 != None %}
+            {% if content2 != "None" %}
             {% for user2 in content2 %}
             <li><a href="{% url 'covid-patient-detail' user2.uid %}"
               style="
@@ -107,7 +107,7 @@
             {% endfor %}
             {% endif %}
           </ul>
-          {% if content2 == None %}
+          {% if content2 == "None" %}
             <p>No requests</p> 
             {% endif %}
         </div> 
@@ -116,7 +116,7 @@
         <h4>Post COVID Patients</h4>
         <div>
           <ul>
-            {% if content3 != None %}
+            {% if content3 != "None" %}
             {% for user3 in content3 %}
             <li><a href="{% url 'postcovid-patient-detail' user3.uid %}"
               style="
@@ -132,7 +132,7 @@
             {% endfor %}
             {% endif %}
           </ul>
-          {% if content3 == None %}
+          {% if content3 == "None" %}
             <p>No requests</p> 
             {% endif %}
         </div>
