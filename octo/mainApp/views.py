@@ -39,59 +39,71 @@ def requests_patients(request):
     global db
     hospitalName = request.user.username
     #contact
-    content1 = []
-    users_query=db.child("contact").order_by_child("request").equal_to(hospitalName).get()
-    users= users_query.val()     
-    if users:
-        for user in users:
-            content1.append(users[user])
-    else:
-        content1.append(None)
-    #positive
-    content2 = []
-    users_query2=db.child("positive").order_by_child("request").equal_to(hospitalName).get()
-    users2= users_query2.val()     
-    if users2:
-        for user2 in users2:
-            content2.append(users2[user2])
-    else:
-        content2.append(None)   
 
+    try:
+        content1 = []
+        users_query=db.child("contact").order_by_child("request").equal_to(hospitalName).get()
+        users= users_query.val()     
+        if users:
+            for user in users:
+                content1.append(users[user])
+    except:
+        content1="None"
+    print(content1)
+    #positive
+    try:
+        content2 = []
+        users_query2=db.child("positive").order_by_child("request").equal_to(hospitalName).get()
+        users2= users_query2.val()     
+        if users2:
+            for user2 in users2:
+                content2.append(users2[user2]) 
+    except:
+        content2="None"   
     #postcovid
-    content3 = []
-    users_query3=db.child("postcovid").order_by_child("request").equal_to(hospitalName).get()
-    users3= users_query3.val()     
-    if users_query3.val():
-        for user3 in users3:
-            content3.append(users3[user3])
-    else:
-        content3.append(None)                   
-    
+    try:
+        content3 = []
+        users_query3=db.child("postcovid").order_by_child("request").equal_to(hospitalName).get()
+        users3= users_query3.val()     
+        if users_query3.val():
+            for user3 in users3:
+                content3.append(users3[user3])                  
+    except:
+        content3="None"                           
     return render(request, 'mainApp/requests.html', {'content1': content1,'content2': content2,'content3': content3, 'hospitalName': hospitalName})
 
 @login_required
 def contactpatientDetail(request, uid):
     global db
     hospitalName = request.user.username
-    users_query=db.child("contact").order_by_child("request").equal_to(hospitalName).get()
-    users = users_query.val() 
-    specific_user = users[uid]
+    try:
+        users_query=db.child("contact").order_by_child("request").equal_to(hospitalName).get()
+        users = users_query.val() 
+        specific_user = users[uid]
+    except:
+        specific_user="No Requests!"
     return render(request, 'mainApp/requestpatientDetail.html', {'user': specific_user, 'hospitalName': hospitalName})     
 
 @login_required
 def covidpatientDetail(request, uid):
     global db
     hospitalName = request.user.username
-    users_query=db.child("positive").order_by_child("request").equal_to(hospitalName).get()
-    users = users_query.val() 
-    specific_user = users[uid]
+    try:
+        users_query=db.child("positive").order_by_child("request").equal_to(hospitalName).get()
+        users = users_query.val() 
+        specific_user = users[uid]
+    except:
+        specific_user="No Requests!"
     return render(request, 'mainApp/requestpatientDetail.html', {'user': specific_user, 'hospitalName': hospitalName})   
 
 @login_required
 def postcovidpatientDetail(request, uid):
     global db
     hospitalName = request.user.username
-    users_query=db.child("postcovid").order_by_child("request").equal_to(hospitalName).get()
-    users = users_query.val() 
-    specific_user = users[uid]
-    return render(request, 'mainApp/requestpatientDetail.html', {'user': specific_user, 'hospitalName': hospitalName})    
+    try:
+        users_query=db.child("postcovid").order_by_child("request").equal_to(hospitalName).get()
+        users = users_query.val() 
+        specific_user = users[uid]
+    except:
+        specific_user="No Requests!"
+    return render(request, 'mainApp/requestpatientDetail.html', {'user': specific_user, 'hospitalName': hospitalName})  
