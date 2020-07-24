@@ -36,17 +36,22 @@ def register_patient(request):
             accesst = {'hospital': hospitalName,
                        'phno': phoneNo}
             try:
-                auth.create_user_with_email_and_password(email, password)
-                # the user will be identified by his phoneNo
-                db.child('Patients').child(
+                if db.child('Patients').child(hospitalName).child(phoneNo).shallow().get():
+                    message1 = "Patient Already exists with the same Phone Number"
+                    form = PatientRegistrationForm()
+                    return render(request, 'patients/patientRegister.html', {'form': form, 'message': message1})
+                else:
+                    auth.create_user_with_email_and_password(email, password)
+                       # the user will be identified by his phoneNo
+                    db.child('Patients').child(
                     hospitalName).child(phoneNo).set(data)
-                user = auth.sign_in_with_email_and_password(email, password)
-                uid = (user['localId'])
-                db.child('Access').child(
+                    user = auth.sign_in_with_email_and_password(email, password)
+                    uid = (user['localId'])
+                    db.child('Access').child(
                     uid).set(accesst)
-                return redirect('user/')
+                    return redirect('user/')
             except:
-                message2 = "Patient Already Exist with same Phone Number"
+                message2 = "Enter valid credentials"
                 form = PatientRegistrationForm()
                 return render(request, 'patients/patientRegister.html', {'form': form, 'message': message2})
         else:

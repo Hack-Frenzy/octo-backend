@@ -19,10 +19,12 @@
   </head>
   <body> 
     {% if message != None %}
-      <div class="alert alert-primary" role="alert" style="text-align: center; margin-top: 5%; width: 50%; margin-left:15% ;"> 
+      <div class="alert alert-primary" role="alert" style="text-align: center; margin-top: 5%; width: 50%; margin-left:18% ;"> 
         {{message}}
   </div>
   {% endif %}
+  <a href="{% url 'allPatients' %}" type="button" class="btn btn-primary" style=" margin-left:75%; margin-top: 2%;" title="Back to Homepage">Back to dashboard</a>
+
     <div style="margin: 18%; margin-top:5%; ">
       {% load crispy_forms_tags %}
       <legend
