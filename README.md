@@ -1,6 +1,6 @@
 # octo-backend
 The website of the COVCare project made using Django and Bootstrap.                              
-Link to the website: https://praxiitr2.herokuapp.com/
+Link to the website: https://praxiitr.eu-gb.cf.appdomain.cloud/
 
 # COVCare: A COVID Quarantine and Isolation Home Healthcare Service
 
