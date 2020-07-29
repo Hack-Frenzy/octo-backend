@@ -56,11 +56,13 @@ The patients can install the android app and create an account. There is a choic
 Moreover, each parameter has a set of information about it for instance, What is blood pressure?, How do we measure it? and other guidelines to use the instrument along with links to online tutorials to do so.
 Hospital service side:
 Hospitals can register on the website by filling the sign-up form and can approve the registration of patients.
-The dashboard of every hospital displays a list of patients by sorting them on the basis of their MEWS, displaying the more severe patients above and then the less severe once. The doctors can click on the specific patient account to see more details regarding his medical condition. Seeing the MEWS score and SPO2 values the doctors can decide which patients to immediately shift to the hospital.Here's a short video of the working of the android app made by us:Click here
-Tech stack used:
-Java: the android app has been written in the Java language with the help of Android Studio.
-Django: the website is written using the Django as the backend framework.Bootstrap: the frontend of the website is written using bootstrap.
-Firebase Authentication: To Authenticate Patients into the app
-Firebase Realtime Database:  It has been used as the cloud backend service for the app.
-PostgreSQL: the database management system of the website.
-Heroku: It has been used to deploy the website of COVCare.
+The dashboard of every hospital displays a list of patients by sorting them on the basis of their MEWS, displaying the more severe patients above and then the less severe once. The doctors can click on the specific patient account to see more details regarding his medical condition. Seeing the MEWS score and SPO2 values the doctors can decide which patients to immediately shift to the hospital.           
+Here's a short video of the project made by us: https://youtu.be/Cymb4fwcoio
+# Tech stack used:
+Java: the android app has been written in the Java language with the help of Android Studio.          
+Django: the website is written using the Django as the backend framework.               
+Bootstrap: the frontend of the website is written using bootstrap.           
+Firebase Authentication: To Authenticate Patients into the app.             
+Firebase Realtime Database:  It has been used as the cloud backend service for the app.                 
+PostgreSQL: the database management system of the website.                  
+Heroku: It has been used to deploy the website of COVCare.                    
