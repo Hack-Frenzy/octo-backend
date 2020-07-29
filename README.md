@@ -65,4 +65,4 @@ Bootstrap: the frontend of the website is written using bootstrap.
 Firebase Authentication: To Authenticate Patients into the app.             
 Firebase Realtime Database:  It has been used as the cloud backend service for the app.                 
 PostgreSQL: the database management system of the website.                  
-Heroku: It has been used to deploy the website of COVCare.                    
+IBM Cloudfoundry: It has been used to deploy the website of COVCare.                    
